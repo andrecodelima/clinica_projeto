@@ -6,21 +6,28 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "exame")
+@Table(name = "exames")
 public class Exame {
 
 	@Id
 	@GeneratedValue
 	private int id;	
 	
-	@Column
+	@Column(length = 100)
 	private String nome;
 	
 	@Column
 	private LocalDate data;
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "idpaciente")
+	private Paciente paciente;
 
 	public Exame() {
 		super();

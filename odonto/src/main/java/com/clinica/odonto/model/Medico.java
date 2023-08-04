@@ -9,125 +9,162 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "medico")
+@Table(name = "pacientes")
 public class Medico {
 
 	@Id
 	@GeneratedValue
 	private int id;	
 	
-	@Column
+	@Column(length = 100)
+	private String nome;
+	
+	@Column(length = 15)
 	private String cpf;
 	
-	@Column
+	@Column(length = 15)
 	private String crm;
+	
+	@Column(length = 100)
+	private String especialidade;
 	
 	@Column
 	private LocalDate nascimento;
 	
-	@Column
+	@Column(length = 20)
 	private String telefone;
 	
-	@Column
+	@Column(length = 100)
 	private String email;
 	
-	@Column
+	@Column(length = 200)
 	private String endereco;
 	
-	@Column
-	private String especialidade;
 	
 	public Medico() {}
 
-	public Medico(String cpf, String crm, LocalDate nascimento, String telefone, String email, String endereco,
-			String especialidade) {
+
+	public Medico(String nome, String cpf, String crm, String especialidade, LocalDate nascimento, String telefone,
+			String email, String endereco) {
 		super();
+		this.nome = nome;
 		this.cpf = cpf;
 		this.crm = crm;
+		this.especialidade = especialidade;
 		this.nascimento = nascimento;
 		this.telefone = telefone;
 		this.email = email;
 		this.endereco = endereco;
-		this.especialidade = especialidade;
 	}
 
-	public Medico(int id, String cpf, String crm, LocalDate nascimento, String telefone, String email, String endereco,
-			String especialidade) {
+
+	public Medico(int id, String nome, String cpf, String crm, String especialidade, LocalDate nascimento,
+			String telefone, String email, String endereco) {
 		super();
 		this.id = id;
+		this.nome = nome;
 		this.cpf = cpf;
 		this.crm = crm;
+		this.especialidade = especialidade;
 		this.nascimento = nascimento;
 		this.telefone = telefone;
 		this.email = email;
 		this.endereco = endereco;
-		this.especialidade = especialidade;
 	}
+
 
 	public int getId() {
 		return id;
 	}
 
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 
 	public String getCpf() {
 		return cpf;
 	}
 
+
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+
 
 	public String getCrm() {
 		return crm;
 	}
 
+
 	public void setCrm(String crm) {
 		this.crm = crm;
 	}
 
-	public LocalDate getNascimento() {
-		return nascimento;
-	}
-
-	public void setNascimento(LocalDate nascimento) {
-		this.nascimento = nascimento;
-	}
-
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
 
 	public String getEspecialidade() {
 		return especialidade;
 	}
 
+
 	public void setEspecialidade(String especialidade) {
 		this.especialidade = especialidade;
 	}
 
-    
+
+	public LocalDate getNascimento() {
+		return nascimento;
+	}
+
+
+	public void setNascimento(LocalDate nascimento) {
+		this.nascimento = nascimento;
+	}
+
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	
+	 
+
+	
 	
 }

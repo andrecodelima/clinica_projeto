@@ -9,40 +9,40 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "paciente")
+@Table(name = "pacientes")
 public class Paciente {
 
 	@Id
 	@GeneratedValue
 	private int id;	
 	
-	@Column
+	@Column(length = 100)
 	private String nome;
 	
-	@Column
+	@Column(length = 15)
 	private String cpf;
 	
 	@Column
-	private LocalDate data;
+	private LocalDate nascimento;
 	
-	@Column
+	@Column(length = 20)
 	private String telefone;
 	
-	@Column
+	@Column(length = 100)
 	private String email;
 	
-	@Column
+	@Column(length = 200)
 	private String endereco;
 	
 	
 	public Paciente() {}
 
 
-	public Paciente(String nome, String cpf, LocalDate data, String telefone, String email, String endereco) {
+	public Paciente(String nome, String cpf, LocalDate nascimento, String telefone, String email, String endereco) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
-		this.data = data;
+		this.nascimento = nascimento;
 		this.telefone = telefone;
 		this.email = email;
 		this.endereco = endereco;
@@ -80,12 +80,12 @@ public class Paciente {
 
 
 	public LocalDate getData() {
-		return data;
+		return nascimento;
 	}
 
 
 	public void setData(LocalDate data) {
-		this.data = data;
+		this.nascimento = data;
 	}
 
 
@@ -119,12 +119,12 @@ public class Paciente {
 	}
 
 
-	public Paciente(int id, String nome, String cpf, LocalDate data, String telefone, String email, String endereco) {
+	public Paciente(int id, String nome, String cpf, LocalDate nascimento, String telefone, String email, String endereco) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
-		this.data = data;
+		this.nascimento = nascimento;
 		this.telefone = telefone;
 		this.email = email;
 		this.endereco = endereco;
