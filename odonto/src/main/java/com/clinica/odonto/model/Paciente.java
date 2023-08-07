@@ -22,6 +22,9 @@ public class Paciente {
 	@Column(length = 15)
 	private String cpf;
 	
+	@Column(length = 30)
+	private String genero;
+	
 	@Column
 	private LocalDate nascimento;
 	
@@ -36,16 +39,55 @@ public class Paciente {
 	
 	
 	public Paciente() {}
-
-
-	public Paciente(String nome, String cpf, LocalDate nascimento, String telefone, String email, String endereco) {
+	
+	public Paciente(String nome, String cpf) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
+
+	}
+
+	public Paciente(String nome, String cpf, String genero, LocalDate nascimento, String telefone, String email, String endereco) {
+		super();
+		this.nome = nome;
+		this.cpf = cpf;
+		this.genero = genero;
 		this.nascimento = nascimento;
 		this.telefone = telefone;
 		this.email = email;
 		this.endereco = endereco;
+	}
+
+	public Paciente(int id, String nome, String cpf,  String genero, LocalDate nascimento, String telefone, String email, String endereco) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.genero = genero;
+		this.nascimento = nascimento;
+		this.telefone = telefone;
+		this.email = email;
+		this.endereco = endereco;
+	}
+
+
+	public String getGenero() {
+		return genero;
+	}
+
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
+
+	public LocalDate getNascimento() {
+		return nascimento;
+	}
+
+
+	public void setNascimento(LocalDate nascimento) {
+		this.nascimento = nascimento;
 	}
 
 
@@ -119,16 +161,6 @@ public class Paciente {
 	}
 
 
-	public Paciente(int id, String nome, String cpf, LocalDate nascimento, String telefone, String email, String endereco) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.cpf = cpf;
-		this.nascimento = nascimento;
-		this.telefone = telefone;
-		this.email = email;
-		this.endereco = endereco;
-	}
 
  
 	
