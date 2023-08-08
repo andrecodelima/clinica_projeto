@@ -46,7 +46,16 @@ public class Paciente {
 		this.cpf = cpf;
 
 	}
-
+	public Paciente(int id, String nome, String cpf, String genero, String telefone, String email, String endereco) {
+		super();
+		this.nome = nome;
+		this.cpf = cpf;
+		this.genero = genero;
+		this.telefone = telefone;
+		this.email = email;
+		this.endereco = endereco;
+	}
+	
 	public Paciente(String nome, String cpf, LocalDate nascimento, String genero, String telefone, String email, String endereco) {
 		super();
 		this.nome = nome;

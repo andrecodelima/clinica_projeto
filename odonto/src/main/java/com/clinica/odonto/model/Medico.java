@@ -25,11 +25,14 @@ public class Medico {
 	@Column(length = 15)
 	private String crm;
 	
-	@Column(length = 100)
-	private String especialidade;
-	
 	@Column
 	private LocalDate nascimento;
+	
+	@Column(length = 30)
+	private String genero;
+	
+	@Column(length = 100)
+	private String especialidade;
 	
 	@Column(length = 20)
 	private String telefone;
@@ -44,29 +47,31 @@ public class Medico {
 	public Medico() {}
 
 
-	public Medico(String nome, String cpf, String crm, String especialidade, LocalDate nascimento, String telefone,
-			String email, String endereco) {
+	public Medico(String nome, String cpf, String crm, LocalDate nascimento, String genero, String especialidade,
+			String telefone, String email, String endereco) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
 		this.crm = crm;
-		this.especialidade = especialidade;
 		this.nascimento = nascimento;
+		this.genero = genero;
+		this.especialidade = especialidade;
 		this.telefone = telefone;
 		this.email = email;
 		this.endereco = endereco;
 	}
 
 
-	public Medico(int id, String nome, String cpf, String crm, String especialidade, LocalDate nascimento,
-			String telefone, String email, String endereco) {
+	public Medico(int id, String nome, String cpf, String crm, LocalDate nascimento, String genero,
+			String especialidade, String telefone, String email, String endereco) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.crm = crm;
-		this.especialidade = especialidade;
 		this.nascimento = nascimento;
+		this.genero = genero;
+		this.especialidade = especialidade;
 		this.telefone = telefone;
 		this.email = email;
 		this.endereco = endereco;
@@ -113,16 +118,6 @@ public class Medico {
 	}
 
 
-	public String getEspecialidade() {
-		return especialidade;
-	}
-
-
-	public void setEspecialidade(String especialidade) {
-		this.especialidade = especialidade;
-	}
-
-
 	public LocalDate getNascimento() {
 		return nascimento;
 	}
@@ -130,6 +125,26 @@ public class Medico {
 
 	public void setNascimento(LocalDate nascimento) {
 		this.nascimento = nascimento;
+	}
+
+
+	public String getGenero() {
+		return genero;
+	}
+
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
+
+	public String getEspecialidade() {
+		return especialidade;
+	}
+
+
+	public void setEspecialidade(String especialidade) {
+		this.especialidade = especialidade;
 	}
 
 
@@ -162,9 +177,6 @@ public class Medico {
 		this.endereco = endereco;
 	}
 
-	
-	 
 
-	
-	
+	 
 }
