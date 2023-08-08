@@ -1,6 +1,7 @@
 package com.clinica.odonto.controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -53,12 +54,17 @@ public class PacienteController extends HttpServlet {
 
 	}
     
-    
+ 
 	public void newPaciente(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		Paciente paciente = new Paciente(
 											request.getParameter("inputNome"),
-											request.getParameter("inputCpf")
-				
+											request.getParameter("inputCpf"),
+											LocalDate.parse(request.getParameter("inputData")),
+											request.getParameter("inputGenero"),
+											request.getParameter("inputTelefone"),
+											request.getParameter("inputEmail"),
+											request.getParameter("inputEndereco")
+
 										);
 		
 		if(PacienteServices.insert(paciente)) {
