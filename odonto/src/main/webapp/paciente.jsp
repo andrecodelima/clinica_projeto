@@ -94,6 +94,8 @@
 		    color: var(--bs-card-color);
 		    background-color: #618cbf;
 		    margin-top: -105px;
+		   width: 1285px;
+    	   margin-left: -282px;
  		    }
 		    
 		 .col-md-6{
@@ -107,14 +109,19 @@
 	     }
      
     	.Dados{
-		color:#000;	
-		font-weight: 600;
-		border-bottom: 1px dotted #fff
+			color:#000;	
+			font-weight: 600;
+			border-bottom: 1px dotted #fff
 	
-		}
+			}
 	
 		h1{
 			color:#fff;
+		}
+		
+		.table-link{
+			    width: 5%;
+
 		}
     </style>
   </head>
@@ -188,7 +195,13 @@
 							
 								<thead>
 									<tr>
-										<th class="col-nome">Nome</th>
+										<th class="col-nome">		Nome</th>
+										<th class="col-cpf">		CPF</th>  
+										<th class="col-genero">		Gênero</th>
+										<th class="col-telefone">	Telefone</th>
+										<th class="col-email">		E-mail</th>
+										<th class="col-endereço">	Endereço</th>
+										
 										 
 									</tr>
 								</thead>

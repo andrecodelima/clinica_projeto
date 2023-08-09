@@ -29,23 +29,42 @@ public class Exame {
 	@JoinColumn(name = "idpaciente")
 	private Paciente paciente;
 
+	private int idPaciente = paciente.getId();
+	
 	public Exame() {
 		super();
 	}
 
-	public Exame(String nome, LocalDate data) {
-		super();
-		this.nome = nome;
-		this.data = data;
+	
+
+	public int getIdPaciente() {
+		return idPaciente;
 	}
 
-	public Exame(int id, String nome, LocalDate data) {
+
+
+	public void setIdPaciente(int idPaciente) {
+		this.idPaciente = idPaciente;
+	}
+
+
+
+	public Exame(int id, String nome, int idPaciente) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.data = data;
+		this.idPaciente = idPaciente;
 	}
 
+	public Exame(String nome, int idPaciente) {
+		super();
+		this.nome = nome;
+		this.idPaciente = idPaciente;
+	}
+
+ 
+
+	
 	public int getId() {
 		return id;
 	}
@@ -68,6 +87,14 @@ public class Exame {
 
 	public void setData(LocalDate data) {
 		this.data = data;
+	}
+
+	public Paciente getPaciente() {
+		return paciente;
+	}
+
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
 	}
 	
 	 

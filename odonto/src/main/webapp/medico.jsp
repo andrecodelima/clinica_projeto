@@ -1,3 +1,60 @@
+<%@page import="com.clinica.odonto.services.MedicoServices"%>
+<%@page import="java.text.DateFormat"%>
+<%@ page import="java.time.LocalDate" %>
+
+<%@ page import="java.util.ArrayList" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+
+<%@page import="com.clinica.odonto.model.Medico"%>
+<%@page import="com.clinica.odonto.services.PacienteServices"%>
+<%
+	ArrayList<Medico> lista = MedicoServices.getMedico(); 
+	String line = "";
+	
+	if(lista.isEmpty()){
+		line = "<tr><th colspan='3'> Não há médicos cadastrados </tr></th>";
+		
+	}else{
+		
+		for(Medico p : lista){
+			
+			String nome					= p.getNome();
+			String cpf					= p.getCpf();
+			String crm					= p.getCrm();
+			String genero				= p.getGenero();
+			String especi				= p.getEspecialidade();
+			String telefone				= p.getTelefone();
+			String email				= p.getEmail();
+			String endereco				= p.getEndereco();
+			
+			int id						= p.getId();
+			
+			line +=	"<tr>"						+
+					
+					"<td class='Dados'>"		+ nome 				+	"</td>"		+
+					"<td class='Dados'>"		+ cpf				+ 	"</td>"		+
+					"<td class='Dados'>"		+ crm				+ 	"</td>"		+
+				    "<td class='Dados'>"		+ genero			+ 	"</td>"		+
+					
+					"</tr>"															+
+					
+					"<tr>"															+
+					
+					"<td class='Dados'>"		+ especi			+ 	"</td>"		+
+   					"<td class='Dados'>"		+ telefone			+ 	"</td>"		+
+					"<td class='Dados'>"		+ email				+ 	"</td>"		+
+					"<td class='Dados'>"		+ endereco			+ 	"</td>"		+
+					
+				 "</tr>"															+
+
+				"<tr>"																+
+					"<td class='table-link'><a class='btn btn-warning' href='#"		+ id + "'>Editar</a></td>"  	+
+					"<td class='table-link'><a class='btn btn-danger'  href='#"		 + id + "'>Excluir</a></td>"  	+
+					
+				"</tr>";
+		}
+	}
+%>
 
 <!DOCTYPE html>
 <html>
@@ -5,7 +62,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
   
-    <title>Dentistas</title>
+    <title>Medicos</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
   
@@ -49,17 +106,40 @@
 		    color: var(--bs-card-color);
 		    background-color: #618cbf;
 		    margin-top: -105px;
+		   width: 1285px;
+    	   margin-left: -282px;
  		    }
 		    
 		 .col-md-6{
 		     /* border: 2px solid red; */
 		 }
 
-     form{
-      	border: 2px dotted #fff;
-		text-align: left;
-	    padding: 10px;
-     }
+	     form{
+	      	border: 2px dotted #fff;
+			text-align: left;
+		    padding: 10px;
+	     }
+     
+    	.Dados{
+			color:#000;	
+			font-weight: 600;
+			border-bottom: 1px dotted #fff
+	
+			}
+	
+		h1{
+			color:#fff;
+		}
+		
+		.table-link{
+			    width: 5%;
+
+		}
+		
+		.col{
+			border: 2px solid red;
+			}
+		
     </style>
   </head>
 <body>
@@ -119,82 +199,60 @@
                   <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                     <div class="card-body p-4 p-md-5">
                     
-                      <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Cadastro de Médicos</h3>
-                      <form name="formPaciente" action="insertMedico">
-          
-                        <div class="row">
-                          <div class="col-md-12 mb-4">
-                            <div class="form-outline">
-                              <input type="text" class="form-control form-control-lg" id="inputNome"  name="inputNome"  maxlength="45" placeholder="Nome Completo">
-                            </div>
-                          </div>
-                        </div>
-          
-                        <div class="row">
-                          <div class="col-md-6 mb-4 d-flex align-items-center">
-                            <div class="form-outline datepicker w-100">
-                              <input type="text"  class="form-control form-control-lg" id="inputCpf"  name="inputCpf"  maxlength="45" placeholder="CPF">
-                            </div>
-                          </div>         
+                      <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Medicos</h3>
+           
+                         <section class="box-produtos">
 
-                          <div class="col-md-6 mb-4 d-flex align-items-center">
-                            <div class="form-outline datepicker w-100">
-                              <input type="text"  class="form-control form-control-lg" id="inputCrm"  name="inputCrm"  maxlength="45" placeholder="CRM">
-                            </div>
-                          </div>   
-                        </div>
-  
+							<h1>Lista de Médicos</h1>
+							<hr>
+				
+							<a href="cadastroProduto.html" class="btn btn-outline-info" title="Cadastrar novo produto">Novo</a> 
+				
+							<table class="table-produtos" id="tabelaProduto">
+							
+								<thead>
+									<tr>
+										<th class="col col-3">		Nome</th>
+										<th class="col">		CPF</th>
+										<th class="col">		CRM</th>  
+										<th class="col col-3">		Gênero</th>
+										
+									</tr>
+									
+									<tr>
+										<th class="col">		Especialidade</th>
+										<th class="col">	Telefone</th>
+										<th class="col">		E-mail</th>
+										<th class="col">	Endereço</th>
+										
+										 
+									</tr>
+									
+									<tr>
+										
+										 
+									</tr>
+								</thead>
+				
+				
+								<tbody>
+									<tr>
+										<th><%=line %></th>
+									</tr>
+								</tbody>
+				
+								
+								<tfoot>
+									<tr>
+										<th colspan="5">Fim da lista</th>
+									</tr>
+								</tfoot>
+				
+							</table>
+			
+						</section>
+	               		 	
                         
- 
-                      <div class="row">
-                        <div class="col-md-6 mb-4 d-flex align-items-center">
-                          <div class="form-outline datepicker w-100">
-                            <input type="text" class="form-control form-control-lg" id="inputData"  name="inputData" placeholder="Nascimento" >
-                          </div>
-                         </div>
-
-                        <div class="col-md-6">
-                          <select class="select form-control-lg" id="inputGenero"  name="inputGenero">
-                            <option value="1" disabled></option>
-                            <option value="masculino">Masculino</option>
-                            <option value="feminino">Feminino</option>
-                          </select>    
-                        </div>
-                      </div>
-
-                      <div class="row"> 
-                        <div class="col-md-6">
-                           <select class="select form-control-lg" id="inputEspecialidade"  name="inputEspecialidade">
-                            <option value="1" disabled></option>
-                            <option value="Odonto">Odonto</option>
-                            <option value="Odonto">Protetico</option>
-                          </select>    
-                        </div>
-                        <div class="col-md-6 mb-4 pb-2">
-                          <div class="form-outline">
-                            <input type="tel" class="form-control form-control-lg" id="inputTel"  name="inputTel" placeholder="Telefone">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row"> 
-	                      <div class="col-md-12 mb-4 pb-2">
-	                          <div class="form-outline">
-	                            <input type="email" class="form-control form-control-lg" id="inputEmail"  name="inputEmail" placeholder="E-mail">
-	                          </div>
-	                      </div>
-	                      
-	                       <div class="col-md-12 mb-4 pb-2">
-	                          <div class="form-outline">
-	                            <input type="text" class="form-control form-control-lg" id="inputEndereco"  name="inputEndereco" placeholder="Endereço">
-	                          </div>
-	                      </div>	            	
-                      </div>              
-
-                      <div class="mt-4 pt-2">
-                        <input class="btn btn-primary btn-lg" type="submit" value="Cadastrar"/>
-                      </div>
-          
-                      </form>
                     </div>
                   </div>
                 </div>

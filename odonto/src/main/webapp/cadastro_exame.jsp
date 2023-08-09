@@ -1,3 +1,29 @@
+<%@page import="java.util.ArrayList"%>
+
+<%@page import="com.clinica.odonto.services.PacienteServices"%>
+<%@page import="com.clinica.odonto.model.Exame"%>
+<%@page import="com.clinica.odonto.model.Paciente"%>
+
+<%
+	 ArrayList<Paciente> lista = PacienteServices.getPaciente();
+	 String options = "";
+	 
+	 if(lista.isEmpty()){
+		 options = "Não há pacientes cadastrados";
+			
+		}else{
+			for(Paciente p : lista){
+				String nome	 = p.getNome();
+
+				options += "<option value=\"" + nome + "\">" + nome + "</option>";
+				
+			}
+				
+		}		 
+ 			
+	
+%>
+
 
 <!DOCTYPE html>
 <html>
@@ -5,7 +31,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
   
-    <title>Dentistas</title>
+    <title>Exames</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
   
@@ -119,80 +145,38 @@
                   <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                     <div class="card-body p-4 p-md-5">
                     
-                      <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Cadastro de MÃ©dicos</h3>
-                      <form name="formPaciente" action="insertMedico">
+                      <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Cadastro de Exame</h3>
+                      <form name="formPaciente" action="insertPaciente">
           
                         <div class="row">
-                          <div class="col-md-12 mb-4">
-                            <div class="form-outline">
-                              <input type="text" class="form-control form-control-lg" id="inputNome"  name="inputNome"  maxlength="45" placeholder="Nome Completo">
-                            </div>
-                          </div>
-                        </div>
-          
-                        <div class="row">
-                          <div class="col-md-6 mb-4 d-flex align-items-center">
-                            <div class="form-outline datepicker w-100">
-                              <input type="text"  class="form-control form-control-lg" id="inputCpf"  name="inputCpf"  maxlength="45" placeholder="CPF">
-                            </div>
-                          </div>         
-
-                          <div class="col-md-6 mb-4 d-flex align-items-center">
-                            <div class="form-outline datepicker w-100">
-                              <input type="text"  class="form-control form-control-lg" id="inputCrm"  name="inputCrm"  maxlength="45" placeholder="CRM">
-                            </div>
-                          </div>   
-                        </div>
-  
+	                         <div class="col-md-6">
+	                           <select class="select form-control-lg" id="inputExame"  name="inputExame">
+	                            <option value="1" disabled></option>
+	                            <option value="Odonto">Limpeza</option>
+	                            <option value="Odonto">Canalasasasasas</option>
+	                          </select>    
+	                        </div>          
                         
- 
-                      <div class="row">
-                        <div class="col-md-6 mb-4 d-flex align-items-center">
-                          <div class="form-outline datepicker w-100">
-                            <input type="text" class="form-control form-control-lg" id="inputData"  name="inputData" placeholder="Nascimento" >
-                          </div>
+                          
+                         <div class="col-md-6 mb-4 d-flex align-items-center">
+                           
+                           <select class="select form-control-lg" id="inputExame"  name="inputExame">
+	                            <option value="1" disabled></option>
+	                            <option value="<%=1%>"></option>
+	                            <%=options%>
+	                            
+	                        </select>    
+                           
                          </div>
+                       </div>
 
-                        <div class="col-md-6">
-                          <select class="select form-control-lg" id="inputGenero"  name="inputGenero">
-                            <option value="1" disabled></option>
-                            <option value="masculino">Masculino</option>
-                            <option value="feminino">Feminino</option>
-                          </select>    
-                        </div>
-                      </div>
+                       
+                       
+                        
 
-                      <div class="row"> 
-                        <div class="col-md-6">
-                           <select class="select form-control-lg" id="inputEspecialidade"  name="inputEspecialidade">
-                            <option value="1" disabled></option>
-                            <option value="Odonto">Odonto</option>
-                            <option value="Odonto">Protetico</option>
-                          </select>    
+                        <div class="mt-4 pt-2">
+                          <input class="btn btn-primary btn-lg" type="submit" value="Cadastrar" />
                         </div>
-                        <div class="col-md-6 mb-4 pb-2">
-                          <div class="form-outline">
-                            <input type="tel" class="form-control form-control-lg" id="inputTel"  name="inputTel" placeholder="Telefone">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row"> 
-	                      <div class="col-md-12 mb-4 pb-2">
-	                          <div class="form-outline">
-	                            <input type="email" class="form-control form-control-lg" id="inputEmail"  name="inputEmail" placeholder="E-mail">
-	                          </div>
-	                      </div>
-	                      
-	                       <div class="col-md-12 mb-4 pb-2">
-	                          <div class="form-outline">
-	                            <input type="text" class="form-control form-control-lg" id="inputEndereco"  name="inputEndereco" placeholder="EndereÃ§o">
-	                          </div>
-	                      </div>	            	
-                      </div>              
-
-                      <div class="mt-4 pt-2">
-                        <input class="btn btn-primary btn-lg" type="submit" value="Cadastrar"/>
-                      </div>
           
                       </form>
                     </div>

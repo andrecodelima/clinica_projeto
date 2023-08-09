@@ -46,6 +46,19 @@ public class Medico {
 	
 	public Medico() {}
 
+	public Medico(int id, String nome, String cpf, String crm, String genero, String especialidade,
+			String telefone, String email, String endereco) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.crm = crm;
+		this.genero = genero;
+		this.especialidade = especialidade;
+		this.telefone = telefone;
+		this.email = email;
+		this.endereco = endereco;
+	}
 
 	public Medico(String nome, String cpf, String crm, LocalDate nascimento, String genero, String especialidade,
 			String telefone, String email, String endereco) {
