@@ -31,12 +31,13 @@ public class Exame {
 
 	private int idPaciente = paciente.getId();
 	
+	private String nomePaciente = paciente.getNome();
+	
 	public Exame() {
 		super();
 	}
 
 	
-
 	public int getIdPaciente() {
 		return idPaciente;
 	}
@@ -49,22 +50,39 @@ public class Exame {
 
 
 
+	public Exame(int id, String nome, String nomePaciente) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.nomePaciente = nomePaciente;
+	}
+
 	public Exame(int id, String nome, int idPaciente) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.idPaciente = idPaciente;
 	}
-
+	
 	public Exame(String nome, int idPaciente) {
 		super();
 		this.nome = nome;
-		this.idPaciente = idPaciente;
+		this.nomePaciente = nomePaciente;
 	}
 
  
 
 	
+	public String getNomePaciente() {
+		return nomePaciente;
+	}
+
+
+	public void setNomePaciente(String nomePaciente) {
+		this.nomePaciente = nomePaciente;
+	}
+
+
 	public int getId() {
 		return id;
 	}

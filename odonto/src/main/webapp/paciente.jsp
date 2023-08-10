@@ -8,6 +8,7 @@
 <%@page import="com.clinica.odonto.services.PacienteServices"%>
 <%
 	ArrayList<Paciente> lista = PacienteServices.getPaciente(); 
+ 
 	String line = "";
 	
 	if(lista.isEmpty()){
@@ -27,13 +28,9 @@
 			int id						= p.getId();
 			
 			line +=	"<tr>"						+
-					
-					"<td class='Dados'>"		+ nome 				+	"</td>"		+
-					"<td class='Dados'>"		+ cpf				+ 	"</td>"		+
-					"<td class='Dados'>"		+ genero			+ 	"</td>"		+
-   					"<td class='Dados'>"		+ telefone			+ 	"</td>"		+
-					"<td class='Dados'>"		+ email				+ 	"</td>"		+
-					"<td class='Dados'>"		+ endereco			+ 	"</td>"		+
+					"<td class='Dados'>"		+ id 				+	"</td>"		+
+
+					 
 
 					
 					"<td class='table-link'><a class='btn btn-warning' href='#"			 				+ id + "'>Editar</a></td>"  	+
@@ -195,6 +192,8 @@
 							
 								<thead>
 									<tr>
+										<th class="col-nome">		id</th>
+									
 										<th class="col-nome">		Nome</th>
 										<th class="col-cpf">		CPF</th>  
 										<th class="col-genero">		Gênero</th>

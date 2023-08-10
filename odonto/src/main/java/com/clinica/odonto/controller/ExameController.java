@@ -56,10 +56,9 @@ public class ExameController extends HttpServlet {
  
 	public void newExame(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		Exame exame = new Exame(
-								request.getParameter("inputNome"),
-								Integer.parseInt(request.getParameter("idPaciente"))
+								request.getParameter("inputExame"),
+								Integer.parseInt(request.getParameter("inputPaciente"))
 										
-
 							   );
 		
 		if(ExameServices.insert(exame)) {

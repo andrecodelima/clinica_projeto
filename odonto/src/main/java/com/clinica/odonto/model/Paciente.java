@@ -40,6 +40,15 @@ public class Paciente {
 	
 	public Paciente() {}
 	
+	
+	
+	public Paciente(int id) {
+		super();
+		this.id = id;
+	}
+
+
+
 	public Paciente(String nome, String cpf) {
 		super();
 		this.nome = nome;
@@ -78,6 +87,7 @@ public class Paciente {
 		this.email = email;
 		this.endereco = endereco;
 	}
+
 
 
 	public String getGenero() {

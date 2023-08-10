@@ -20,11 +20,12 @@ public class ExameServices {
 		
 		try {
 
-			String sql = "INSERT INTO medicos(nome, data, idpaciente) VALUES (?, ?)";
+			String sql = "INSERT INTO medicos(nome, data, idpaciente) VALUES (?, ?, ?)";
 			PreparedStatement st = conn.prepareStatement(sql);
 
 			st.setString(1, exame.getNome());
-			st.setInt(2, idPaciente);
+			st.setObject(2, dataExame);
+			st.setInt(3, idPaciente);
  
 
 			st.execute();
@@ -76,4 +77,6 @@ public static ArrayList<Exame>getExames(){
 		
 		return null;
 	}
+
+
 }

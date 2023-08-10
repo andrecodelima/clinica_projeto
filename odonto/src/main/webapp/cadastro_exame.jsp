@@ -6,6 +6,7 @@
 
 <%
 	 ArrayList<Paciente> lista = PacienteServices.getPaciente();
+
 	 String options = "";
 	 
 	 if(lista.isEmpty()){
@@ -13,9 +14,11 @@
 			
 		}else{
 			for(Paciente p : lista){
-				String nome	 = p.getNome();
+				
+				int idPaciente = p.getId();
+				//String nome	 = p.getNome();
 
-				options += "<option value=\"" + nome + "\">" + nome + "</option>";
+				options += "<option value=\"" + idPaciente + "\">" + idPaciente + "</option>";
 				
 			}
 				
@@ -146,7 +149,7 @@
                     <div class="card-body p-4 p-md-5">
                     
                       <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Cadastro de Exame</h3>
-                      <form name="formPaciente" action="insertPaciente">
+                      <form name="formExame" action="insertExame">
           
                         <div class="row">
 	                         <div class="col-md-6">
@@ -160,7 +163,7 @@
                           
                          <div class="col-md-6 mb-4 d-flex align-items-center">
                            
-                           <select class="select form-control-lg" id="inputExame"  name="inputExame">
+                           <select class="select form-control-lg" id="inputPaciente"  name="inputPaciente">
 	                            <option value="1" disabled></option>
 	                            <option value="<%=1%>"></option>
 	                            <%=options%>
